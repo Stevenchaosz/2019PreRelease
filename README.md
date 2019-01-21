@@ -15,7 +15,7 @@ Write and test a program or programs for the auction company.
 - All variables, constants and other identifiers must have meaningful names.
 You will need to complete these three tasks. Each task must be fully tested. 
 
-##Task 1 — Auction set up.
+## Task 1 — Auction set up.
 For every item in the auction the item number, description and the reserve price should be recorded. 
 The number of bids is set to zero. There must be at least 10 items in the auction.
 
