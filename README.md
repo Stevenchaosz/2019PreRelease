@@ -1,6 +1,6 @@
 # 2019PreRelease
 
-In preparation for the examination, candidates should attempt the following practical tasks **by writing and testing a program or programs.**<br />
+In preparation for the examination, candidates should attempt the following practical tasks **by writing and testing a program or programs.**<br /><br />
 An auction company has an interactive auction board at their salerooms, which allows buyers to place bids at any time during the auction. 
 Before the auction starts, the sellers place their items in the saleroom With a unique number attached to each Item (item number). 
 The following details about each item need to be set up on the interactive auction board system: item number, number of bids, description and reserve price. 
