@@ -38,5 +38,5 @@ while True:
         if purchase_status == "y":
             buyer_id_check = input("Please enter your buyer ID")
         else:
-            print("Purchasing process canceled./n")
+            print("Purchasing process canceled.\n")
             continue
