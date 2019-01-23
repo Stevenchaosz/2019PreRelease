@@ -14,6 +14,7 @@ item_number_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 highest_bit_list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 buyer_id_list = ["Steven", "John", "Charles", "Sam", "Mr. Matthews", "Mr. Rigby"]
+item_highest_bid_holder_list = ["", "", "", "", "", "", "", "", "", "", ""]  # used in task 3
 
 for i in range(len(item_name_list)):
     item_number_current = str(item_number_list[i])
@@ -50,9 +51,9 @@ while True:
                     item_highest_bid = buyer_bid
                     highest_bit_list[search_index] = float(item_highest_bid)
                     bid_number_list[search_index] += 1
+                    item_highest_bid_holder_list[search_index] = buyer_id_check
                     print("Congratulation! Your bid is the current highest.")
                     print("Yet you are free to give another higher bid.")
-                    print(bid_number_list, highest_bit_list)
                 else:
                     print("Your bid is lower than the current highest bid, please try again.\n")
             else:
@@ -61,3 +62,6 @@ while True:
         else:
             print("Purchasing process canceled.\n")
             continue
+
+# Task 3
+
