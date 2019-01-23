@@ -1,8 +1,9 @@
 # The app intends to display interactive auction board information including
 # Item number, number of bids, description and reserve price.
 
-NumberOfBid = []
-Description = []
+ItemName = ["Phone", "Postcard", "Car", "Pen", "Notebook", "Pencil Case", "Laptop", "Mouse", "Keyboard", ""]
+NumberOfBid = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Description = ["", "", "", "", "", "", "", "", "", ""]
 ReservePrice = []
 ProductSelling = 0
 ItemNo = []
