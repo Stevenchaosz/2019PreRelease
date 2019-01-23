@@ -31,12 +31,27 @@ while True:
         search_index = item_name_list.index(name_search)
         current_description = description_list[search_index]
         print("Details: " + current_description)
-        item_highest_bit = "$" + str(highest_bit_list[search_index])
-        print("Current highest bit is " + item_highest_bit)
+        item_highest_bid = "$" + str(highest_bit_list[search_index])
+        print("Current highest bit is " + item_highest_bid)
         purchase_status = input("Do you want to purchase? Y/N: ")
         purchase_status = purchase_status.casefold()
         if purchase_status == "y":
-            buyer_id_check = input("Please enter your buyer ID")
+            buyer_id_check = str(input("Please enter your buyer ID"))
+            while buyer_id_check in buyer_id_list:
+                print("Identity verified.")
+                buyer_bid = input("Please enter your bid: ")
+                # no type check or type conversion is need because if it is not a number,
+                # then it will automatically fail the condition
+                if buyer_bid > item_highest_bid:
+                    item_highest_bid = buyer_bid
+                    bid_number_list[search_index] += 1
+                    print("Congradulation! Your bid is the current highest.")
+                    print("Yet you are free to give another higher bid.")
+                else:
+                    print("Your bid is lower than the current highest bid, please try again.\n")
+            else:
+                print("Identify verification failed. Please try again.")
+                continue
         else:
             print("Purchasing process canceled.\n")
             continue
