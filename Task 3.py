@@ -34,7 +34,7 @@ while True:
     else:
         search_index = item_name_list.index(name_search)
         current_description = description_list[search_index]
-        item_highest_bid = float(highest_bid_price_list[search_index])
+        item_highest_bid = int(highest_bid_price_list[search_index])
         item_highest_bid_with_dollar_sign = "$" + str(item_highest_bid)
         print("Details: " + current_description)
         print("Current highest bit is " + item_highest_bid_with_dollar_sign)
@@ -46,12 +46,12 @@ while True:
             buyer_number_check = str(input("Please enter your buyer number: "))
             while buyer_number_check in buyer_number_list:
                 print("\nIdentity verified.")
-                buyer_bid = float(input("Please enter your bid: "))
+                buyer_bid = int(input("Please enter your bid: "))
                 # no type check or type conversion is need because if it is not a number,
                 # then it will automatically fail the condition
                 if buyer_bid > item_highest_bid:
                     item_highest_bid = buyer_bid
-                    highest_bid_price_list[search_index] = float(item_highest_bid)
+                    highest_bid_price_list[search_index] = int(item_highest_bid)
                     bid_number_list[search_index] += 1
                     item_highest_bid_holder_list[search_index] = buyer_number_check
                     print("Congratulation! Your bid is the current highest.")
@@ -95,25 +95,25 @@ while True:
 highest_price_item_number_list = []
 under_reserved_price_item_number_list = []
 no_bid_item_number_list = []
-sold_status = ["no"]*10
+sold_status_list = ["no"] * 10
+total_fee_list = []
 
-for x in range(len(reserve_price_list)):
+for x in range(len(highest_bid_price_list)):
     index_number = int(x)
-    if float(highest_bid_price_list[x]) < float(reserve_price_list[x]):
+    if int(highest_bid_price_list[x]) < int(reserve_price_list[x]):
         under_reserved_price_item_number_list.append(index_number+1)
-        sold_status[x] = "no"
-    elif float(highest_bid_price_list[x]) > float(reserve_price_list[x]):
+        sold_status_list[x] = "no"
+    elif int(highest_bid_price_list[x]) > int(reserve_price_list[x]):
         highest_price_item_number_list.append(index_number+1)
-        sold_status[x] = "yes"
-    elif float(highest_bid_price_list[x]) == 0:
+        sold_status_list[x] = "yes"
+    elif int(highest_bid_price_list[x]) == 0:
         no_bid_item_number_list.append(index_number+1)
-        sold_status[x] = "no"
+        sold_status_list[x] = "no"
 
     fee = [0]*len(highest_price_item_number_list)
-    total_fee = [0]*len(highest_price_item_number_list)
-    total_fee[x] = (1+0.1)*float(highest_bid_price_list[x])
-    total_fee_string = str(total_fee)
+    total_fee_list.append((1 + 0.1) * int(highest_bid_price_list[x]))
+    total_fee_string = str(total_fee_list[x])
     highest_item_number = str(x+1)
-    print("The total fee of "+highest_item_number+"is "+total_fee_string)
+    print("The total fee of " + highest_item_number + " is "+total_fee_string)
 
 
