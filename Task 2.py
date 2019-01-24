@@ -13,6 +13,7 @@ item_number_list = list(range(1, 11))
 
 highest_bit_list = [0]*10
 buyer_id_list = ["Steven", "John", "Charles", "Sam", "Mr. Matthews", "Mr. Rigby"]
+item_highest_bid_holder_list = [""]*10  # used in task 3
 
 for i in range(len(item_name_list)):
     item_number_current = str(item_number_list[i])
@@ -20,6 +21,7 @@ for i in range(len(item_name_list)):
     print(item_number_current + ": " + current_item_name)
 
 while True:
+    restart = False
     name_search = input("Please enter the item name: ")
     name_search = name_search.casefold()
     if name_search not in item_name_list:
@@ -41,7 +43,7 @@ while True:
         while purchase_status == "y":
             buyer_id_check = str(input("Please enter your buyer ID: "))
             while buyer_id_check in buyer_id_list:
-                print("Identity verified.")
+                print("\nIdentity verified.")
                 buyer_bid = float(input("Please enter your bid: "))
                 # no type check or type conversion is need because if it is not a number,
                 # then it will automatically fail the condition
@@ -49,14 +51,25 @@ while True:
                     item_highest_bid = buyer_bid
                     highest_bit_list[search_index] = float(item_highest_bid)
                     bid_number_list[search_index] += 1
+                    item_highest_bid_holder_list[search_index] = buyer_id_check
                     print("Congratulation! Your bid is the current highest.")
                     print("Yet you are free to give another higher bid.")
-                    print(bid_number_list, highest_bit_list)
+                    further_bid = input("Do you want to give another bid? Y/N")
+                    further_bid = further_bid.casefold()
+                    if further_bid == "n":
+                        restart = True
+                        break
                 else:
                     print("Your bid is lower than the current highest bid, please try again.\n")
+                if restart:
+                    break
             else:
                 print("Identify verification failed. Please try again.")
                 continue
+            if restart:
+                break
         else:
             print("Purchasing process canceled.\n")
+            continue
+        if restart:
             continue
