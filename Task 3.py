@@ -93,7 +93,7 @@ while True:
 
 # Task 3
 highest_price_item_number_list = []
-under_reserved_price_item_number_list = []
+under_reserve_price_item_number_list = []
 no_bid_item_number_list = []
 sold_status_list = ["no"] * 10
 total_fee_list = []
@@ -101,7 +101,7 @@ total_fee_list = []
 for x in range(len(highest_bid_price_list)):
     index_number = int(x)
     if int(highest_bid_price_list[x]) < int(reserve_price_list[x]):
-        under_reserved_price_item_number_list.append(index_number+1)
+        under_reserve_price_item_number_list.append(index_number + 1)
         sold_status_list[x] = "no"
     elif int(highest_bid_price_list[x]) > int(reserve_price_list[x]):
         highest_price_item_number_list.append(index_number+1)
@@ -116,4 +116,10 @@ for x in range(len(highest_bid_price_list)):
     highest_item_number = str(x+1)
     print("The total fee of " + highest_item_number + " is "+total_fee_string)
 
+for y in range(len(under_reserve_price_item_number_list)):
+    under_reserve_price_index = under_reserve_price_item_number_list[y]
+    under_reserve_price_index_string = str(under_reserve_price_index)
+    underbid_price = highest_bid_price_list[under_reserve_price_index]
+    underbid_price_string = str(underbid_price)
+    print("Item Number: "+under_reserve_price_index_string+" for highest price of $"+underbid_price_string)
 
