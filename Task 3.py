@@ -115,12 +115,6 @@ for x in range(len(highest_bid_price_list)):
         highest_price_item_number_list.append(index_number+1)
         sold_status_list[x] = "yes"
         total_price = total_price + int(highest_bid_price_list[x]*1.1)
-    
-#    fee = [0]*len(highest_price_item_number_list)
-#    total_fee_list.append((1 + 0.1) * int(highest_bid_price_list[x]))
-#    total_fee_string = str(int(total_fee_list[x]))
-#    highest_item_number = str(x + 1)
-#    print("The total price of " + highest_item_number + " is $"+total_fee_string)
 
 print("\n\nTotal price is $"+str(total_price))
 
@@ -132,7 +126,8 @@ for y in range(len(under_reserve_price_item_number_list)):
     under_reserve_price_index_string = str(under_reserve_price_index)
     underbid_price = highest_bid_price_list[under_reserve_price_index-1]
     underbid_price_string = str(underbid_price)
-    print("Item Number "+under_reserve_price_index_string+" has a highest price of $"+underbid_price_string+". But the price is lower than the reserve price.")
+    print("Item Number "+under_reserve_price_index_string+" has a highest price of $"+underbid_price_string +
+          ". But the price is lower than the reserve price.")
 
 if len(no_bid_item_number_list) != 0:
     print("\n")
@@ -140,7 +135,7 @@ if len(no_bid_item_number_list) != 0:
 for z in range(len(no_bid_item_number_list)):
     no_bid_item_number_index = no_bid_item_number_list[z]
     no_bid_item_number_index_string = str(no_bid_item_number_index)
-    print("Item Number "+no_bid_item_number_index_string+" has no bid at all")
+    print("Item Number " + no_bid_item_number_index_string+" has no bid at all")
 
 sold_item_quantity = str(len(highest_price_item_number_list))
 under_reserve_price_item_quantity = str(len(under_reserve_price_item_number_list))
@@ -149,4 +144,4 @@ no_bid_quantity = str(len(no_bid_item_number_list))
 print()
 print(sold_item_quantity+" is/are sold.")
 print(under_reserve_price_item_quantity+" is/are lower than reserve price.")
-print(no_bid_quantity+ " has/have no bids.")
+print(no_bid_quantity + " has/have no bids.")
