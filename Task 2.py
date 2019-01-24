@@ -4,15 +4,14 @@
 # Task 1
 
 item_name_list = ["phone", "postcard", "car", "pen", "tablet", "pencil case", "laptop", "mouse", "keyboard", "收藏加购物车十元返现"]
-bid_number_list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+bid_number_list = [0]*10
 description_list = ["iPhone XS", "New Zealand City View", "BMW i8", "Schneider Limited Edition", "iPad Pro 12.9in", "Kokuyo Limited", "ASUS Zenbook Pro 15", "Magic Mouse", "Cherry MX. 8.0", "勿拍此项"]
 reserve_price_list = [300, 15, 50000, 100, 2027, 50, 1099, 129, 699, 1000000000]
-item_number_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
+item_number_list = list(range(1, 11))
 
 # Task 2
 
-highest_bit_list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+highest_bit_list = [0]*10
 buyer_id_list = ["Steven", "John", "Charles", "Sam", "Mr. Matthews", "Mr. Rigby"]
 
 for i in range(len(item_name_list)):
