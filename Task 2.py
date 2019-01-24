@@ -90,5 +90,5 @@ while True:
         if restart:
             print()
             continue
-        elif:
+        elif exit_loop:
             break
