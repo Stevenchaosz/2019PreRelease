@@ -94,11 +94,11 @@ while True:
             break
 
 # Task 3
-highest_price_item_number_list = []
-under_reserve_price_item_number_list = []
-no_bid_item_number_list = []
-sold_status_list = ["no"] * 10
-total_fee_list = []
+
+highest_price_item_number_list = []  # record the item numbers which have the highest price
+under_reserve_price_item_number_list = []  # record the item numbers which have bids that are under reserve price
+no_bid_item_number_list = []  # record the item numbers where no bid is given
+sold_status_list = ["no"] * 10  # mark if the item is not sold
 total_price = 0
 print()
 print()
