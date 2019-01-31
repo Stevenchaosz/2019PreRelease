@@ -2,58 +2,51 @@
 # Item number, number of bids, description and reserve price.
 
 # Task 1
-
+product_selling = 0  # Initialization
 while True:
-        product_selling = int(input("Number of selling items: "))
-        if product_selling < 10:
-            print("Please enter an item number bigger than 10.")
-            continue
-        else:
-            break
-
-item_name_list = []
+    product_selling = int(input("How many items are you going to sell"))
+    if product_selling < 10:
+        print("Error, please enter more than 10 products.")
+    else:
+        break
+name_list = []
 bid_number_list = [0]*product_selling
 description_list = []
 reserve_price_list = []
 item_number_list = list(range(1, product_selling+1))
-product_selling = 0
 
 for i in range(product_selling):
-    input_name = str(input("Please enter the item name: "))
-    item_name_list.append(input_name)
-    input_description = str(input("Please enter the item description: "))
-    description_list.append(input_description)
-    input_price = float(input("Please enter the reserve price: "))
-    reserve_price_list.append(input_price)
+    _name = str(input("Please enter the item name: "))
+    _description = str(input("Please enter the item description: "))
+    _price = float(input("Please enter the reserve price: "))
 
+    name_list.append(_name)
+    description_list.append(_description)
+    reserve_price_list.append(_price)
 # Task 2
 
-highest_bid_price_list = [0] * 10
+highest_bid_list = [0] * product_selling
 buyer_number_list = ["1", "2", "3", "4", "5", "6"]
 item_highest_bid_holder_list = [""]*10  # used in task 3
 
-
-search_index = 0
 while True:
     # Print all item and item number
-    for i in range(len(item_name_list)):
-        item_number_current = str(item_number_list[i])
-        current_item_name = str(item_name_list[i])
-        print(item_number_current + ": " + current_item_name)
+    for i in range(len(name_list)):
+        _item_num = str(item_number_list[i])
+        current_item_name = str(name_list[i])
+        print(_item_num + ": " + current_item_name)
 
     restart = False
     exit_loop = False
-    print()
-    print()
     name_search = input("Please enter the item name: ")
     name_search = name_search.casefold()
-    if name_search not in item_name_list:
+    if name_search not in name_list:
         print("Item number invalid, enter again.")
         continue
     else:
-        search_index = item_name_list.index(name_search)
+        search_index = name_list.index(name_search)
         current_description = description_list[search_index]
-        item_highest_bid = int(highest_bid_price_list[search_index])
+        item_highest_bid = float(highest_bid_list[search_index])
         item_highest_bid_with_dollar_sign = "$" + str(item_highest_bid)
         print("Details: " + current_description)
         print("Current highest bit is " + item_highest_bid_with_dollar_sign)
@@ -62,21 +55,21 @@ while True:
         purchase_status = purchase_status.casefold()
 
         while purchase_status == "y":
-            buyer_number_check = str(input("\nPlease enter your buyer number: "))
+            buyer_number_check = str(input("Please enter your buyer number: "))
             while buyer_number_check in buyer_number_list:
-                print("Identity verified.")
-                buyer_bid = int(input("\nPlease enter your bid: "))
+                print("\nIdentity verified.")
+                buyer_bid = float(input("Please enter your bid: "))
                 # no type check or type conversion is need because if it is not a number,
                 # then it will automatically fail the condition
                 if buyer_bid > item_highest_bid:
                     item_highest_bid = buyer_bid
-                    highest_bid_price_list[search_index] = int(item_highest_bid)
+                    highest_bid_list[search_index] = float(item_highest_bid)
                     bid_number_list[search_index] += 1
                     item_highest_bid_holder_list[search_index] = buyer_number_check
                     print("Congratulation! Your bid is the current highest.")
-                    print("Yet you are free to give another higher bid.")
+                    print("\nYet you are free to give another higher bid.")
                     while True:
-                        further_bid = input("\nDo you want to give another bid or allow others to bid? Y/N")
+                        further_bid = input("Do you want to give another bid or allow others to bid? Y/N")
                         further_bid = further_bid.casefold()
                         if further_bid == "y":
                             restart = True
@@ -120,18 +113,18 @@ total_price = 0
 print()
 print()
 
-for x in range(len(highest_bid_price_list)):
+for x in range(len(highest_bid_list)):
     index_number = int(x)
-    if int(highest_bid_price_list[x]) == 0:
+    if int(highest_bid_list[x]) == 0:
         no_bid_item_number_list.append(index_number + 1)
         sold_status_list[x] = "no"
-    elif int(highest_bid_price_list[x]) < int(reserve_price_list[x]) and int(highest_bid_price_list[x]) != 0:
+    elif int(highest_bid_list[x]) < int(reserve_price_list[x]) and int(highest_bid_list[x]) != 0:
         under_reserve_price_item_number_list.append(index_number + 1)
         sold_status_list[x] = "no"
-    elif int(highest_bid_price_list[x]) > int(reserve_price_list[x]):
+    elif int(highest_bid_list[x]) > int(reserve_price_list[x]):
         highest_price_item_number_list.append(index_number+1)
         sold_status_list[x] = "yes"
-        total_price = total_price + int(highest_bid_price_list[x]*1.1)
+        total_price = total_price + int(highest_bid_list[x] * 1.1)
 
 print("\n\nTotal price is $"+str(total_price))
 
@@ -141,7 +134,7 @@ if len(under_reserve_price_item_number_list) != 0:
 for y in range(len(under_reserve_price_item_number_list)):
     under_reserve_price_index = under_reserve_price_item_number_list[y]
     under_reserve_price_index_string = str(under_reserve_price_index)
-    underbid_price = highest_bid_price_list[under_reserve_price_index-1]
+    underbid_price = highest_bid_list[under_reserve_price_index - 1]
     underbid_price_string = str(underbid_price)
     print("Item Number "+under_reserve_price_index_string+" has a highest price of $"+underbid_price_string +
           ". But the price is lower than the reserve price.")
