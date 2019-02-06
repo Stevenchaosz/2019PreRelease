@@ -33,10 +33,12 @@ loop_status = False
 while True:
     # Print all item and their item numbers
     print("\nWelcome to auction! ")
+
     for i in range(len(name_list)):
         _item_num = str(item_number_list[i])
         current_item_name = str(name_list[i])
         print(_item_num + ": " + current_item_name)
+
     if buyer_number_check == "0":
         print("If you want to give a bid, \n"
               "please enter your buyer number ")
@@ -80,70 +82,7 @@ while True:
         continue
     elif purchase_status == "n":
         buyer_number_check = "0"
-    if buyer_number_check == "exit":
-        break
     if buyer_number_check not in buyer_number_list:
         print("Buyer number invalid, try again. ")
-    # restart = False
-    # exit_loop = False
-    # name_search = input("Please enter the item name: ")
-    # name_search = name_search.casefold()
-    # if name_search not in name_list:
-    #     print("Item number invalid, enter again.")
-    #     continue
-    # else:
-    #     search_index = name_list.index(name_search)
-    #     current_description = description_list[search_index]
-    #     item_highest_bid = float(highest_bid_list[search_index])
-    #     item_highest_bid_with_dollar_sign = "$" + str(item_highest_bid)
-    #     print("Details: " + current_description)
-    #     print("Current highest bit is " + item_highest_bid_with_dollar_sign)
-    #
-    #     purchase_status = input("\nDo you want to purchase? Y/N: ")
-    #     purchase_status = purchase_status.casefold()
-    #
-    #     while purchase_status == "y":
-    #         buyer_number_check = str(input("Please enter your buyer number: "))
-    #         while buyer_number_check in buyer_number_list:
-    #             print("\nIdentity verified.")
-    #             buyer_bid = float(input("Please enter your bid: "))
-    #             # no type check or type conversion is need because if it is not a number,
-    #             # then it will automatically fail the condition
-    #             if buyer_bid > item_highest_bid:
-    #                 item_highest_bid = buyer_bid
-    #                 highest_bid_list[search_index] = float(item_highest_bid)
-    #                 bid_number_list[search_index] += 1
-    #                 item_highest_bid_holder_list[search_index] = buyer_number_check
-    #                 print("Congratulation! Your bid is the current highest.")
-    #                 print("\nYet you are free to give another higher bid.")
-    #                 while True:
-    #                     further_bid = input("Do you want to give another bid or allow others to bid? Y/N")
-    #                     further_bid = further_bid.casefold()
-    #                     if further_bid == "y":
-    #                         restart = True
-    #                         break
-    #                     elif further_bid == "n":
-    #                         exit_loop = True
-    #                         break
-    #                     else:
-    #                         print("Sorry, error in input")
-    #                         continue
-    #             else:
-    #                 print("Your bid is lower than the current highest bid, please try again.\n")
-    #                 continue
-    #             if restart:
-    #                 break
-    #             elif exit_loop:
-    #                 break
-    #         else:
-    #             print("Identify verification failed. Please try again.")
-    #         if restart:
-    #             break
-    #         elif exit_loop:
-    #             break
-    #     else:
-    #         print("Purchasing process canceled.\n")
-    #     if restart:
-    #         print()
-    #     elif exit_loop:
-    #         break
+        buyer_number_check = "0"
+        buyer_number_check = "0"

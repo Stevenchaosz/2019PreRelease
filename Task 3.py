@@ -3,9 +3,10 @@
 
 # Task 1
 product_selling = 0  # Initialization
+print("Welcome to auction software.")
 while True:
     product_selling = int(input("How many items are you going to sell: "))
-    if product_selling < 10:
+    if product_selling < 3:
         print("Error, please enter more than 10 products.")
     else:
         break
@@ -33,10 +34,12 @@ loop_status = False
 while True:
     # Print all item and their item numbers
     print("\nWelcome to auction! ")
+
     for i in range(len(name_list)):
         _item_num = str(item_number_list[i])
         current_item_name = str(name_list[i])
         print(_item_num + ": " + current_item_name)
+
     if buyer_number_check == "0":
         print("If you want to give a bid, \n"
               "please enter your buyer number ")
@@ -80,15 +83,14 @@ while True:
         continue
     elif purchase_status == "n":
         buyer_number_check = "0"
-    if buyer_number_check == "exit":
-        break
     if buyer_number_check not in buyer_number_list:
         print("Buyer number invalid, try again. ")
+        buyer_number_check = "0"
 
 # Task 3
-highest_price_item_number_list = []  # record the item numbers which have the highest price
-under_reserve_price_item_number_list = []  # record the item numbers which have bids that are under reserve price
-no_bid_item_number_list = []  # record the item numbers where no bid is given
+highest_price_list = []  # record the item numbers with the highest price
+under_reserve_price_list = []  # record the item numbers with reserve prices lower than reserve price
+no_bid_list = []  # record the item numbers with no bid
 sold_status_list = ["no"] * product_selling  # mark if the item is not sold
 total_price = 0
 print()
@@ -97,40 +99,26 @@ print()
 for x in range(len(highest_bid_list)):
     index_number = int(x)
     if int(highest_bid_list[x]) == 0:
-        no_bid_item_number_list.append(index_number + 1)
+        no_bid_list.append(index_number + 1)
         sold_status_list[x] = "no"
     elif int(highest_bid_list[x]) < int(reserve_price_list[x]) and int(highest_bid_list[x]) != 0:
-        under_reserve_price_item_number_list.append(index_number + 1)
+        under_reserve_price_list.append(index_number + 1)
         sold_status_list[x] = "no"
     elif int(highest_bid_list[x]) > int(reserve_price_list[x]):
-        highest_price_item_number_list.append(index_number+1)
+        highest_price_list.append(index_number + 1)
         sold_status_list[x] = "yes"
         total_price = total_price + int(highest_bid_list[x] * 1.1)
 
 print("\n\nTotal price is $"+str(total_price))
+print("Following item has at least 1 bid, "
+      "but the bid is lower than the reserve price: ")
+print(under_reserve_price_list)
+print("Following item has no bid at all: ")
+print(no_bid_list)
 
-if len(under_reserve_price_item_number_list) != 0:
-    print("\n")
-
-for y in range(len(under_reserve_price_item_number_list)):
-    under_reserve_price_index = under_reserve_price_item_number_list[y]
-    under_reserve_price_index_string = str(under_reserve_price_index)
-    underbid_price = highest_bid_list[under_reserve_price_index - 1]
-    underbid_price_string = str(underbid_price)
-    print("Item Number "+under_reserve_price_index_string+" has a highest price of $"+underbid_price_string +
-          ". But the price is lower than the reserve price.")
-
-if len(no_bid_item_number_list) != 0:
-    print("\n")
-
-for z in range(len(no_bid_item_number_list)):
-    no_bid_item_number_index = no_bid_item_number_list[z]
-    no_bid_item_number_index_string = str(no_bid_item_number_index)
-    print("Item Number " + no_bid_item_number_index_string+" has no bid at all")
-
-sold_item_quantity = str(len(highest_price_item_number_list))
-under_reserve_price_item_quantity = str(len(under_reserve_price_item_number_list))
-no_bid_quantity = str(len(no_bid_item_number_list))
+sold_item_quantity = str(len(highest_price_list))
+under_reserve_price_item_quantity = str(len(under_reserve_price_list))
+no_bid_quantity = str(len(no_bid_list))
 
 print()
 print(sold_item_quantity+" is/are sold.")
