@@ -8,7 +8,7 @@ print("Welcome to auction software.")
 
 while True:  # Prompt for number of selling item & check if it is greater than 10
     product_selling = int(input("How many items are you going to sell: "))
-    if product_selling < 3:
+    if product_selling < 10:
         print("Error, please enter more than 10 products.")
     else:
         break
