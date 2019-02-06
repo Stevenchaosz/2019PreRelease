@@ -1,6 +1,7 @@
 # The app intends to display interactive auction board information including
 # Item number, number of bids, description and reserve price.
 
+# Task 1
 product_selling = 0  # Initialization
 while True:
     product_selling = int(input("How many items are you going to sell"))
