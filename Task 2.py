@@ -54,13 +54,13 @@ while True:
     while buyer_number_check in buyer_number_list:  # bidding procedure
         if not cookie:  # avoid double identification on the same buyer
             print("\nIdentity verified.")
-        name_search = input("\nPlease enter the item name that you want to bid: ")
-        name_search = name_search.casefold()
-        if name_search not in name_list:  # check if buyer number in list
+        item_to_buy = input("\nPlease enter the item name that you want to bid: ")
+        item_to_buy = item_to_buy.casefold()
+        if item_to_buy not in name_list:  # check if buyer number in list
             print("Item number invalid, try again.")
             continue
 
-        search_index = name_list.index(name_search)  # search for item
+        search_index = name_list.index(item_to_buy)  # search for item
         current_description = description_list[search_index]  # find description
         item_highest_bid = float(highest_bid_list[search_index])
         item_highest_bid_with_dollar_sign = "$" + str(item_highest_bid)
