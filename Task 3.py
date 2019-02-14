@@ -30,7 +30,7 @@ for i in range(product_selling):  # Prompt for item details
 
 # Task 2
 # Allow buyers to purchase
-highest_bid_list = [0] * product_selling  # list storing highest bid for each item
+highest_bid_list = [0.0] * product_selling  # list storing highest bid for each item
 buyer_number_list = ["1", "2", "3", "4", "5", "6"]  # buyer number list
 item_highest_bid_holder_list = [""]*10  # used in task 3
 buyer_number_check = "0"  # initialize buyer number; prevent void input
