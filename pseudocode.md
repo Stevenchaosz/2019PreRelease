@@ -17,7 +17,7 @@ description_list <-- []
 reserve_price_list <-- []  
 item_number_list <-- list(range(1, product_selling + 1))
 
-FOR counter <-- 1 to length(product_selling)
+FOR counter <-- 1 TO length(product_selling)
     INPUT _name, _description, _price
     name_list[counter] <-- _name
     description_list[counter] <-- _description
@@ -28,9 +28,13 @@ NEXT
 ## Task 2
 Allow buyers to purchase
 ```pseudocode
-highest_bid_list <-- [0.0] * product_selling  
-buyer_number_list <-- ["1", "2", "3", "4", "5", "6"]  
-item_highest_bid_holder_list <-- [""]*10  
+FOR i 1 TO product_selling
+	highest_bid_list[i - 1] <-- 0.0 
+	item_highest_bid_holder_list[i - 1] <-- ""
+NEXT
+FOR i 1 TO 6
+	buyer_number_list[i-1] <--  i
+NEXT
 buyer_number_check <-- "0"  
 cookie <-- False  
 WHILE purchase_status <-- "no" DO
@@ -87,7 +91,9 @@ Calculate and show statistics
 highest_price_list <-- []
 under_reserve_price_list <-- []
 no_bid_list <-- []
-sold_status_list <-- ["no"] * product_selling
+FOR i TO product_selling
+	sold_status_list[i] <-- ""
+NEXT
 total_price <-- 0
 FOR counter_3 <-- 1 TO length(highest_bid_list)
     IF highest_bid_list[counter_3] = 0
