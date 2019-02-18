@@ -75,7 +75,7 @@ ENDWHILE
             ENDIF
             INPUT purchase_status("Do you want to bid FOR another item? Y/N")
         UNTIL purchase_status = "n"
-        IF buyer_number_check not IN buyer_number_list
+        IF buyer_number_check NOT IN buyer_number_list
             THEN OUTPUT "Buyer number invalid, try again. " 
             buyer_number_check <-- "0"
         ENDIF
