@@ -39,7 +39,7 @@ while True:
     purchase_status = "no"
     print("\nWelcome to auction! ")
 
-    for i in range(len(name_list)):  # Print all item and their item numbers
+    for i in range(name_list):  # Print all item and their item numbers
         _item_num = str(item_number_list[i])
         current_item_name = str(name_list[i])
         print(_item_num + ": " + current_item_name)

@@ -39,7 +39,7 @@ while True:
     purchase_status = "no"
     print("\nWelcome to auction! ")
 
-    for i in range(len(name_list)):  # Print all item and their item numbers
+    for i in range(name_list):  # Print all item and their item numbers
         _item_num = str(item_number_list[i])
         current_item_name = str(name_list[i])
         print(_item_num + ": " + current_item_name)
@@ -105,7 +105,7 @@ total_price = 0
 print()
 print()
 
-for x in range(len(highest_bid_list)):  # categorize item by their bid number and status
+for x in range(highest_bid_list):  # categorize item by their bid number and status
     index_number = int(x)
     if int(highest_bid_list[x]) == 0:
         no_bid_list.append(index_number + 1)
