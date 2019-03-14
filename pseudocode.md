@@ -8,7 +8,8 @@ OUTPUT "Welcome to auction software."
 
 OUTPUT "Enter how many items you want to sell?"
 INPUT product_selling
-WHILE product_selling < 10  DO product_selling
+WHILE product_selling < 10 
+        DO product_selling
 	OUTPUT "Enter how many items you want to sell?"
 	INPUT product_selling
 	OUTPUT "Error, please enter more than 10 products."
