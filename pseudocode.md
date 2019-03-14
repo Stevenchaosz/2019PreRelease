@@ -4,7 +4,7 @@
 Allow auction company to enter item details.
 ```pseudocode
 product_selling <-- 0  
-OUTPUT("Welcome to auction software.")
+OUTPUT "Welcome to auction software."
 
 OUTPUT "Enter how many items you want to sell?"
 INPUT product_selling
